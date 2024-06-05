@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .field{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <label for="user">Username</label>
+    <input type="text" name="" id="user">
+    <p class="field"></p><br>
+    <label for="pass">Password</label>
+    <input type="password" name="" id="p">
+    <p class="field"></p><br>
+    <label for="confirm">Confirm Password</label>
+    <input type="password" name="" id="c">
+    <p class="field"></p><br>
+    <label for="phone">Phone</label>
+    <input type="number" name="" id="">
+    <p class="field"></p><br>
+    <label for="gender">Gender</label>
+    <input type="radio" name="g" id=""><label for="">Male</label>
+    <input type="radio" name="g" id=""><label for="">Female</label>
+    <p id="radfield"></p><br>
+    <label for="country">Country</label>
+    <select name="" id="">
+        <option value="">Nepal</option>
+        <option value="">US</option>
+        <option value="">UK</option>
+    </select>
+    <p></p><br>
+    <label for="program">Program</label>
+    <label for="">BBM</label><input type="checkbox" id="" name="a">
+    <label for="">BCA</label><input type="checkbox" id="" name="a">
+    <label for="">BIT</label><input type="checkbox" id="" name="a">
+    <p class="radfield"></p><br>
+    <button id="btn">Submit</button>
+    <script>
+        let field=document.getElementsByClassName('field');
+        let radfield=document.getElementById('radfield');
+        let gen=document.getElementById('g');
+        let usf=document.getElementById('usf');
+        let p=document.getElementById('p');
+        let c=document.getElementById('c');
+        let user=document.getElementById('user');
+
+        let btn=document.getElementById('btn').addEventListener('click',function sub(){
+            if(user.value.length<=5 && user.value.length>0){
+                usf.nextElementSibling.textContent=invalid();
+            }
+            if(p.value!=c.value){
+                c.nextElementSibling.textContent="error password doesnt match";
+            }
+                
+            
+            for(let i=0; i<=field.length; i++){
+                if(field[i].previousElementSibling.value==='' ){
+                    field[i].textContent=displayErr();
+
+                }
+               
+n
+            }
+           
+        });
+        function displayErr(){
+            let errStr="field is empty";
+            return (errStr);
+        }
+        function invalid(){
+            let inv="please enter more than five characters";
+            return(inv);
+        }
+
+    </script>
+</body>
+</html>

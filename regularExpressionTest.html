@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(80, 64, 64);
+           
+        }
+        div{
+            background-color: rgb(212, 174, 248);
+        }
+        textarea{
+            padding: 10px;
+            width: 70%;
+            height: 200px;
+            font-size: 16px;
+        }
+        #container{
+            padding: 10px;
+            width: 100%;
+            height: 100vh;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        span{
+            background-color: rgb(51, 249, 226);
+        }
+        button:hover{
+            background-color: rgb(79, 3, 34);
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Regular Expression</h1>
+        <label for="pattern">Pattern:</label><input type="text" id="pattern" placeholder="enter Pattern"><br><br>
+        <label for="text">Text</label><br><textarea name="" id="text" cols="30" rows="10" placeholder="enter text"></textarea><br>
+        <button id="btn">Match</button><br><br>
+        <div id="res"></div>
+
+    </div>
+    <script>
+        let pattern=document.getElementById("pattern");
+        let text=document.getElementById("text");
+        document.getElementById("btn").addEventListener("click",function(){
+            let pat=RegExp(pattern.value,"g");
+            let txt=text.value;
+            let matched=txt.match(pat);
+            if (matched){
+                console.log(matched);
+                let highlightedtext=txt.replace(pat,'<span>$&</span>');
+                document.getElementById("res").innerHTML=highlightedtext;
+            }
+        });
+    </script>
+</body>
+</html>

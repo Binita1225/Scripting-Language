@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+        <label for="fname">First Name</label>
+    <input type="text" name="" id="fname">
+    <p id="empF"></p>
+    <br>
+   
+        <label for="lname">Last Name</label>
+    <input type="text" name="" id="lname">
+    <p id="empL"></p>
+    
+    <br>
+   <button id="sub">Submit</button>
+    <script>
+        let btn=document.getElementById('sub');
+        let fname=document.getElementById('fname');
+            let lname=document.getElementById('lname');
+        
+        let empF=document.getElementById('empF');
+        let empL=document.getElementById('empL');
+        btn.addEventListener('click',function sub(){
+        document.getElementById('empF').innerText='';
+        document.getElementById('empL').innerText='';
+            
+            if(fname.value===''){
+                empF.textContent=displayErr();
+                
+            }
+            if(lname.value===''){
+                empL.textContent=displayErr();
+                
+            }
+            if(fname.value.length<5 && fname.value.length>0){
+                empF.textContent=invalid();
+            }
+            if(lname.value.length<5 && lname.value.length>0){
+                empL.textContent=invalid();
+            }
+        })
+        function displayErr(e){
+                let errStr="field is empty";
+                return(errStr);
+            }
+            function invalid(){
+                let inv="please input more than 5 characteristic";
+                return(inv);
+            }
+       
+
+    </script>
+</body>
+</html>
